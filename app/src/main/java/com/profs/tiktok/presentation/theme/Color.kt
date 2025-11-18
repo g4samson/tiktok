@@ -16,3 +16,13 @@ val Dark = Color(0xFF161722)
 val TextColor = Color(0xFF86878B)
 
 val IconColor = Color(0xFFD7D7D9)
+
+val LightTextColor = Color(0xFF86878B)
+
+val DivideColor = Color(0xFFD0D1D3)
+
+val MessageColor = Color(0xFFAFB0B3)
+
+val SearchColor = Color(0xFFF1F1F2)
+
+val TikTok = Color(0xFFEA4359)

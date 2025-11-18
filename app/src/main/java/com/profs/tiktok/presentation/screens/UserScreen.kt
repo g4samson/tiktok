@@ -4,6 +4,7 @@ import android.widget.Space
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -37,6 +38,7 @@ import com.profs.tiktok.presentation.theme.Dark
 import com.profs.tiktok.presentation.theme.DefaultWhite
 import com.profs.tiktok.presentation.theme.Gray
 import com.profs.tiktok.presentation.theme.IconColor
+import com.profs.tiktok.presentation.theme.LightTextColor
 import com.profs.tiktok.presentation.theme.Typography
 
 @Composable
@@ -47,38 +49,160 @@ fun UserScreen(navController: NavHostController) {
             .fillMaxSize()
             .background(DefaultWhite),
         topBar = {
-            Row(
+            Column(
                 modifier = Modifier
                     .height(90.dp)
-                    .fillMaxWidth().border(1.dp, Gray),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+                    .fillMaxWidth()
+                    .border(1.dp, Gray),
             ) {
-
-                Icon(
-                    painter = painterResource(R.drawable.icon_add),
-                    contentDescription = null,
-                    modifier = Modifier.size(22.dp)
-                )
-
                 Row(
-                    horizontalArrangement = Arrangement.spacedBy(2.dp), verticalAlignment = Alignment.CenterVertically
+                    modifier = Modifier
+                        .height(78.dp)
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.Bottom
                 ) {
-                    Text("Jacob West", style = Typography.titleMedium)
-                    Icon(
-                        painterResource(R.drawable.icon_more),
-                        contentDescription = null,
-                        modifier = Modifier.size(10.dp)
-                    )
-                }
+                    Row {
+                        Spacer(Modifier.width(16.dp))
+                        IconButton(onClick = {}, modifier = Modifier.size(22.dp)) {
+                            Icon(
+                                painter = painterResource(R.drawable.icon_add),
+                                contentDescription = null,
+                                modifier = Modifier.size(22.dp)
+                            )
+                        }
+                    }
 
-                Icon(
-                    painter = painterResource(R.drawable.icon_menu),
-                    contentDescription = null,
-                    modifier = Modifier.size(22.dp)
-                )
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(2.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text("Jacob West", style = Typography.titleMedium)
+                        Icon(
+                            painterResource(R.drawable.icon_more),
+                            contentDescription = null,
+                            modifier = Modifier.size(10.dp)
+                        )
+                    }
+
+                    Row {
+                        IconButton(onClick = { navController.navigate("settings") }, modifier = Modifier.size(22.dp)) {
+                            Icon(
+                                painter = painterResource(R.drawable.icon_menu),
+                                contentDescription = null,
+                                modifier = Modifier.size(22.dp)
+                            )
+                        }
+                        Spacer(Modifier.width(16.dp))
+                    }
+                }
             }
-        }, bottomBar = {}
+        }, bottomBar = {
+            Column(
+                modifier = Modifier
+                    .height(90.dp)
+                    .fillMaxWidth()
+                    .border(1.dp, Gray),
+            ) {
+                Row(
+                    modifier = Modifier
+                        .height(82.dp)
+                        .fillMaxWidth()
+                        .padding(top = 10.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.Top
+                ) {
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier.padding(start = 27.5.dp)
+                    ) {
+                        Icon(
+                            painter = painterResource(R.drawable.icon_bottom_home),
+                            contentDescription = null,
+                            modifier = Modifier.size(22.dp), tint = LightTextColor
+                        )
+
+                        Spacer(Modifier.width(10.dp))
+
+                        Text(
+                            "Home",
+                            style = Typography.bodyMedium.copy(
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                letterSpacing = 0.15.sp
+                            )
+                        )
+                    }
+
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Icon(
+                            painter = painterResource(R.drawable.icon_bottom_search),
+                            contentDescription = null,
+                            modifier = Modifier.size(22.dp), tint = LightTextColor
+                        )
+
+                        Spacer(Modifier.width(10.dp))
+
+                        Text(
+                            "Discover",
+                            style = Typography.bodyMedium.copy(
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.Normal,
+                                letterSpacing = 0.15.sp
+                            )
+                        )
+                    }
+
+                    Icon(
+                        painter = painterResource(R.drawable.icon_bottom_plus),
+                        contentDescription = null,
+                        modifier = Modifier.size(width = 40.dp, height = 30.dp),
+                        tint = Color.Unspecified
+                    )
+
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Icon(
+                            painter = painterResource(R.drawable.icon_bottom_message),
+                            contentDescription = null,
+                            modifier = Modifier.size(22.dp).clickable{navController.navigate("messages")}, tint = LightTextColor
+                        )
+
+                        Spacer(Modifier.width(10.dp))
+
+                        Text(
+                            "Inbox",
+                            style = Typography.bodyMedium.copy(
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.Normal,
+                                letterSpacing = 0.15.sp
+                            )
+                        )
+                    }
+
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier.padding(end = 27.5.dp)
+                    ) {
+                        Icon(
+                            painter = painterResource(R.drawable.icon_bottom_user),
+                            contentDescription = null,
+                            modifier = Modifier.size(22.dp).clickable { navController.navigate("user") }, tint = Dark
+                        )
+
+                        Spacer(Modifier.width(10.dp))
+
+                        Text(
+                            "Me",
+                            style = Typography.bodyMedium.copy(
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                letterSpacing = 0.15.sp, color = Dark
+                            )
+                        )
+                    }
+                }
+            }
+        }
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -122,7 +246,11 @@ fun UserScreen(navController: NavHostController) {
 
             Spacer(Modifier.height(16.dp))
 
-            Row(modifier = Modifier, horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+            Row(
+                modifier = Modifier,
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
                 Button(
                     onClick = { }, colors = ButtonDefaults.buttonColors(DefaultWhite),
                     modifier = Modifier
@@ -171,14 +299,12 @@ fun UserScreen(navController: NavHostController) {
                                 .height(20.dp), tint = Dark
                         )
                     }
-                    Spacer(Modifier.height(10.dp))
 
-                    Icon(
-                        painterResource(R.drawable.icon_nav_line),
+                    Image(
+                        painterResource(R.drawable.img_line),
                         contentDescription = null,
                         modifier = Modifier
-                            .width(50.dp)
-                            .height(10.dp), tint = Dark
+                            .width(50.dp), contentScale = ContentScale.FillWidth
                     )
                 }
 
@@ -191,8 +317,8 @@ fun UserScreen(navController: NavHostController) {
                             painterResource(R.drawable.icon_nav_fav),
                             contentDescription = null,
                             modifier = Modifier
-                                .width(20.dp)
-                                .height(16.dp), tint = IconColor
+                                .width(50.dp)
+                                .height(20.dp), tint = IconColor
                         )
                     }
                 }
@@ -212,6 +338,7 @@ fun UserScreen(navController: NavHostController) {
                         modifier = Modifier
                             .width(140.dp)
                             .height(180.dp)
+                            .clickable { }
                     )
                 }
                 item {
@@ -222,6 +349,7 @@ fun UserScreen(navController: NavHostController) {
                         modifier = Modifier
                             .width(140.dp)
                             .height(180.dp)
+                            .clickable { }
                     )
                 }
                 item {
@@ -232,6 +360,7 @@ fun UserScreen(navController: NavHostController) {
                         modifier = Modifier
                             .width(140.dp)
                             .height(180.dp)
+                            .clickable { }
                     )
                 }
                 item {
@@ -242,6 +371,7 @@ fun UserScreen(navController: NavHostController) {
                         modifier = Modifier
                             .width(140.dp)
                             .height(180.dp)
+                            .clickable { }
                     )
                 }
             }

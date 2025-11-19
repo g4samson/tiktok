@@ -106,8 +106,7 @@ fun UserScreen(navController: NavHostController) {
             ) {
                 Row(
                     modifier = Modifier
-                        .height(82.dp)
-                        .fillMaxWidth()
+                        .fillMaxSize()
                         .padding(top = 10.dp),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.Top
@@ -119,10 +118,10 @@ fun UserScreen(navController: NavHostController) {
                         Icon(
                             painter = painterResource(R.drawable.icon_bottom_home),
                             contentDescription = null,
-                            modifier = Modifier.size(22.dp), tint = LightTextColor
+                            modifier = Modifier.size(22.dp).clickable{navController.navigate("for_you")}, tint = LightTextColor
                         )
 
-                        Spacer(Modifier.width(10.dp))
+                        Spacer(Modifier.height(6.dp))
 
                         Text(
                             "Home",
@@ -138,10 +137,10 @@ fun UserScreen(navController: NavHostController) {
                         Icon(
                             painter = painterResource(R.drawable.icon_bottom_search),
                             contentDescription = null,
-                            modifier = Modifier.size(22.dp), tint = LightTextColor
+                            modifier = Modifier.size(22.dp).clickable { navController.navigate("album") }, tint = LightTextColor
                         )
 
-                        Spacer(Modifier.width(10.dp))
+                        Spacer(Modifier.height(6.dp))
 
                         Text(
                             "Discover",
@@ -167,7 +166,7 @@ fun UserScreen(navController: NavHostController) {
                             modifier = Modifier.size(22.dp).clickable{navController.navigate("messages")}, tint = LightTextColor
                         )
 
-                        Spacer(Modifier.width(10.dp))
+                        Spacer(Modifier.height(6.dp))
 
                         Text(
                             "Inbox",
@@ -189,7 +188,7 @@ fun UserScreen(navController: NavHostController) {
                             modifier = Modifier.size(22.dp).clickable { navController.navigate("user") }, tint = Dark
                         )
 
-                        Spacer(Modifier.width(10.dp))
+                        Spacer(Modifier.height(6.dp))
 
                         Text(
                             "Me",

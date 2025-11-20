@@ -41,7 +41,7 @@ fun MessagesScreen(navController: NavHostController) {
                 modifier = Modifier
                     .height(90.dp)
                     .fillMaxWidth()
-                    .border(1.dp, Gray),
+                    .border(0.75.dp, Gray),
             ) {
                 Row(
                     modifier = Modifier

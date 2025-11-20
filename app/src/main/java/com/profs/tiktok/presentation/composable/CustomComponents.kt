@@ -159,6 +159,7 @@ fun CommentsListItem(
                             modifier = Modifier.size(9.dp)
                         )
                     }
+                    Spacer(modifier = Modifier.height(8.dp))
                 }
             }
         }

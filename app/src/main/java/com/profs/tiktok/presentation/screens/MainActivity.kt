@@ -1,4 +1,4 @@
-package com.profs.tiktok
+package com.profs.tiktok.presentation.screens
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,7 +13,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            TikTokTheme {
+                TikTokTheme {
                 val navController = rememberNavController()
 
                 NavGraph(navController)

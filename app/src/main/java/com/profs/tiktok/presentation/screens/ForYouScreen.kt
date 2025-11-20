@@ -174,7 +174,7 @@ fun ForYouScreen(navController: NavHostController) {
                             modifier = Modifier.padding(end = 27.5.dp)
                         ) {
                             Icon(
-                                painter = painterResource(R.drawable.icon_bottom_user),
+                                painter = painterResource(R.drawable.account_stroke_icon),
                                 contentDescription = null,
                                 modifier = Modifier
                                     .size(22.dp)
@@ -321,7 +321,6 @@ fun ForYouScreen(navController: NavHostController) {
                                 )
                             }
 
-                            Spacer(modifier = Modifier.height(50.dp))
 
                             Column(
                                 modifier = Modifier
@@ -396,8 +395,10 @@ fun ForYouScreen(navController: NavHostController) {
                                 horizontalArrangement = Arrangement.spacedBy(18.dp)
                             ) {
                                 SharesListItem(R.drawable.whatsapp_logo, "WhatsApp")
-                                SharesListItem(R.drawable.whatsapp_logo, "WhatsApp\n" +
-                                        "status")
+                                SharesListItem(
+                                    R.drawable.whatsapp_logo, "WhatsApp\n" +
+                                            "status"
+                                )
                                 SharesListItem(R.drawable.message_logo, "Message")
                                 SharesListItem(R.drawable.sms_logo, "SMS")
                                 SharesListItem(R.drawable.messenger_logo, "Messenger")
@@ -410,7 +411,8 @@ fun ForYouScreen(navController: NavHostController) {
                                 Modifier
                                     .border(0.5.dp, DivideColor.copy(alpha = 0.2f))
                                     .fillMaxWidth()
-                                    .height(1.dp).padding(horizontal = 16.dp)
+                                    .height(1.dp)
+                                    .padding(horizontal = 16.dp)
                             )
                             Spacer(Modifier.height(14.dp))
 
@@ -423,13 +425,17 @@ fun ForYouScreen(navController: NavHostController) {
                                 horizontalArrangement = Arrangement.spacedBy(18.dp)
                             ) {
                                 SharesListItem(R.drawable.report, "Report")
-                                SharesListItem(R.drawable.not, "Not\n" +
-                                        "interested")
+                                SharesListItem(
+                                    R.drawable.not, "Not\n" +
+                                            "interested"
+                                )
                                 SharesListItem(R.drawable.save, "Save video")
                                 SharesListItem(R.drawable.duet, "Duet")
                                 SharesListItem(R.drawable.react, "React")
-                                SharesListItem(R.drawable.fav, "Add to\n" +
-                                        "Favorites")
+                                SharesListItem(
+                                    R.drawable.fav, "Add to\n" +
+                                            "Favorites"
+                                )
 
                             }
                             Spacer(Modifier.height(2.dp))
@@ -439,7 +445,8 @@ fun ForYouScreen(navController: NavHostController) {
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .height(80.dp)
-                                    .background(DefaultWhite), horizontalAlignment = Alignment.CenterHorizontally
+                                    .background(DefaultWhite),
+                                horizontalAlignment = Alignment.CenterHorizontally
                             ) {
                                 Row(
                                     modifier = Modifier
@@ -487,9 +494,9 @@ fun ForYouScreen(navController: NavHostController) {
                         Text(buildAnnotatedString {
                             withStyle(
                                 SpanStyle(
-                                    fontWeight = FontWeight.Normal,
+                                    fontWeight = FontWeight.Light,
                                     fontSize = 15.sp,
-                                    color = DefaultWhite
+                                    color = DefaultWhite.copy(alpha = 0.9f)
                                 )
                             ) {
                                 append("The most satisfying Job ")
@@ -513,18 +520,20 @@ fun ForYouScreen(navController: NavHostController) {
                             Spacer(modifier = Modifier.width(9.dp))
 
                             Text(
-                                "Roddy Roundicch - The Rou",
+                                "Roddy Roundicch - The \nRou",
                                 style = Typography.titleLarge.copy(
-                                    fontWeight = FontWeight.Normal,
-                                    textAlign = TextAlign.Start,
-                                    fontSize = 15.sp
+                                    fontWeight = FontWeight.Light,
+                                    textAlign = TextAlign.Start, lineHeight = 19.5.sp,
+                                    fontSize = 15.sp, color = DefaultWhite.copy(alpha = 0.9f)
                                 )
                             )
                         }
                     }
 
                     Column(
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = if (!showComments && !showShares) 0.dp else 65.dp),
                         horizontalAlignment = Alignment.End
                     ) {
                         Column(
@@ -583,7 +592,9 @@ fun ForYouScreen(navController: NavHostController) {
                         Image(
                             painterResource(R.drawable.disc),
                             contentDescription = null,
-                            modifier = Modifier.size(50.dp),
+                            modifier = Modifier
+                                .size(50.dp)
+                                .clickable { navController.navigate("album") },
                             contentScale = ContentScale.FillWidth
                         )
 

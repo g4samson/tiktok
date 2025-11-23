@@ -1,4 +1,4 @@
-package com.profs.tiktok.data.utils
+package com.profs.tiktok.domain
 
 import com.profs.tiktok.data.models.Constants
 import com.profs.tiktok.data.models.ImageUser

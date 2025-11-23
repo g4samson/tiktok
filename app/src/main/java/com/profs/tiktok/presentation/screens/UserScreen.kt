@@ -36,7 +36,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.profs.tiktok.R
 import com.profs.tiktok.data.models.Constants
-import com.profs.tiktok.data.utils.Module
+import com.profs.tiktok.domain.Module
 import com.profs.tiktok.presentation.theme.ButtonsOutline
 import com.profs.tiktok.presentation.theme.DefWhite
 import com.profs.tiktok.presentation.theme.IconOnProfile
